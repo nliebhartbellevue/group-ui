@@ -57,7 +57,6 @@ document.addEventListener("DOMContentLoaded", () => {
   let elements = [];
   // Add each row to the elements array
   leaderboard.querySelectorAll(".row").forEach(el => elements.push(el));
-  console.log(elements);
   // clear the leaderboard
   leaderboard.innerHTML = "";
   // Sort the elements array from highest to lowest
@@ -74,8 +73,6 @@ document.addEventListener("DOMContentLoaded", () => {
 const toggleSide = () => {
   mainsidebar.classList.toggle("openSide");
 };
-
-// Append questions and choices to tiles
 
 //start knockout work//
 function JeopardyViewModel() {

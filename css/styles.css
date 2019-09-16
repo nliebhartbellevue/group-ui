@@ -4,6 +4,10 @@
   box-sizing: border-box;
 }
 
+body {
+  background: #111;
+}
+
 /* Sidebar */
 .hamburger-container {
   display: inline-block;
@@ -263,9 +267,10 @@
   flex: 1;
   width: 100%;
   display: flex;
+  text-align: center;
   justify-content: center;
   align-items: center;
-  font-size: 3.5vw;
+  font-size: 2.3rem;
   font-family: impact;
   color: #ddd;
   background: linear-gradient(to top left, #000088, #0000ff);
@@ -306,7 +311,7 @@
 .btn {
   border: 2px solid #2196f3;
   color: dodgerblue;
-  width: 100%;
+  width: 50%;
   background: transparent;
   padding: 14px 28px;
   font-size: 2vw;

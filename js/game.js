@@ -73,7 +73,9 @@ const buildGame = () => {
       answers.push(
         `
             <input type="hidden" name="question${questionNumber}" value="${letter}">
-                <button class="btn">${letter} : ${currentQuestion.answers[letter]}</button>
+              <div class="btn-group">
+                <div class="btn">${letter}: ${currentQuestion.answers[letter]}</div>
+              </div>
             </input>
         `
       );
@@ -82,10 +84,20 @@ const buildGame = () => {
     // Add question and its answers to the output
     output.push(
       `
-        <div class="tile" onclick="toggleActive(this)">
+        <div class="tile" data-toggle="modal" data-target="#questionModal">
             <div class="value">$${currentQuestion.value}</div>
-            <div class="question">${currentQuestion.question}</div><br>
-            <div class="answers">${answers.join("")}</div>
+        </div>
+
+        <div class="modal fade" id="questionModal">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              
+              <div class="modal-header">
+                <div class="questions">${currentQuestion.question}</div>
+              </div>
+              <div class="modal-body text-center">${answers.join("")}</div>
+            </div>
+          </div>
         </div>
       `
     );

@@ -1,3 +1,12 @@
+class Question {
+  constructor(value, question, answers, correctAnswer) {
+    this.value = value;
+    this.question = question;
+    this.answers = answers;
+    this.correctAnswer = correctAnswer;
+  }
+}
+
 // One hundred dollar questions
 const oneQuestions = [
   {

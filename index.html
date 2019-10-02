@@ -4,241 +4,88 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-
-    <title>Test Board</title>
-    <link
-      rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
-      crossorigin="anonymous"
-    />
-    <link rel="stylesheet" href="./css/styles.css" />
+    <title>Black Beard Jeopardy</title>
+    <link rel="stylesheet" href="css/test.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/core.js"></script>
   </head>
   <body>
-    <!-- Sidebar -->
-    <div id="mainSidebar" class="sidebar">
-      <div class="hamburger-container" onclick="hamburgerFunc(this)">
-        <div class="bar1"></div>
-        <div class="bar2"></div>
-        <div class="bar3"></div>
-      </div>
-
-      <!-- Leader Board -->
-      <div id="lBContainer" class="glow">
-        <div class="row">
-          <div class="name">Player 1</div>
-          <div class="score">4300</div>
-        </div>
-        <div id="lBContainer">
-          <div class="row">
-            <div class="name">Player 2</div>
-            <div class="score">5800</div>
-          </div>
-        </div>
-        <div id="lBContainer">
-          <div class="row">
-            <div class="name">Player 3</div>
-            <div class="score">3100</div>
-          </div>
-        </div>
-        <div id="lBContainer">
-          <div class="row">
-            <div class="name">Player 4</div>
-            <div class="score">6400</div>
-          </div>
-        </div>
-        <div id="lBContainer">
-          <div class="row">
-            <div class="name">Player 5</div>
-            <div class="score">4900</div>
-          </div>
-        </div>
-      </div>
+    <div class="header-container">
+      <h1 class="heading">Jeopardy</h1>
+      <p class="show-answer" id="js-show-answer"></p>
+      <p class="show-current-player-name" id="js-show-current-player-name"></p>
     </div>
-
-    <!-- Overlay -->
-    <div id="signIn" class="overlay">
-      <!-- Button to close the overlay and play as Guest -->
-      <a href="javascript:void(0)" class="closebtn" onclick="closeWin()"
-        >&times;</a
-      >
-
-      <!-- Overlay content -->
-      <div class="overlay-content">
-        <!-- SignIn form -->
-        <form id="user_form">
-          <div class="imgcontainer">
-            <img
-              class="signinImg"
-              src="./img/signin-image.png"
-              alt="Signin Image"
-            />
-          </div>
-
-          <div class="container">
-            <label for="user"><b>Players Name:</b></label>
-            <input
-              id="user-name"
-              type="text"
-              class="form-control"
-              data-bind="value: userInputName"
-              placeholder="Please Enter Your Name!"
-              name="user"
-            />
-
-            <button data-bind="click: addUser" class="btn btn-success">
-              Play
-            </button>
-          </div>
-        </form>
+    <main class="main-container">
+      <form class="input-names" id="js-input-names">
+        <label>
+          Player 1
+          <input type="text" class="input-player" id="js-input-player-1" />
+        </label>
+        <label>
+          Player 2
+          <input type="text" class="input-player" id="js-input-player-2" />
+        </label>
+        <label>
+          Player 3
+          <input type="text" class="input-player" id="js-input-player-3" />
+        </label>
+        <button class="names-button" id="js-names-button">
+          PLAY JEOPARDY!
+        </button>
+      </form>
+      <table class="jeopardy-board" id="js-jeopardy-board">
+        <tr>
+          <th class="category" id="js-category-0">category-0</th>
+          <th class="category" id="js-category-1">category-1</th>
+          <th class="category" id="js-category-2">category-2</th>
+          <th class="category" id="js-category-3">category-3</th>
+        </tr>
+        <tr>
+          <td class="card" id="js-row-0">$100</td>
+          <td class="card" id="js-row-1">$100</td>
+          <td class="card" id="js-row-2">$100</td>
+          <td class="card" id="js-row-3">$100</td>
+        </tr>
+        <tr>
+          <td class="card" id="js-row-4">$200</td>
+          <td class="card" id="js-row-5">$200</td>
+          <td class="card" id="js-row-6">$200</td>
+          <td class="card" id="js-row-7">$200</td>
+        </tr>
+        <tr>
+          <td class="card" id="js-row-8">$500</td>
+          <td class="card" id="js-row-9">$500</td>
+          <td class="card" id="js-row-10">$500</td>
+          <td class="card" id="js-row-11">$500</td>
+        </tr>
+        <tr>
+          <td class="card" id="js-row-12">$1000</td>
+          <td class="card" id="js-row-13">$1000</td>
+          <td class="card" id="js-row-14">$1000</td>
+          <td class="card" id="js-row-15">$1000</td>
+        </tr>
+        <tr>
+          <td class="card" id="js-row-16">$2000</td>
+          <td class="card" id="js-row-17">$2000</td>
+          <td class="card" id="js-row-18">$2000</td>
+          <td class="card" id="js-row-19">$2000</td>
+        </tr>
+      </table>
+    </main>
+    <section class="player-info">
+      <h2 class="players-heading">
+        <span id="js-players-heading">Player</span>'s Turn
+      </h2>
+      <p class="player-name" id="js-player-one-name">Player One's Name</p>
+      <p class="player-points">$<span id="js-player-one-points"></span></p>
+      <p class="player-name" id="js-player-two-name">Player Two's Name</p>
+      <p class="player-points">$<span id="js-player-two-points"></span></p>
+      <p class="player-name" id="js-player-three-name">Player Three's Name</p>
+      <p class="player-points">$<span id="js-player-three-points"></span></p>
+      <div class="input-guess">
+        <input type="text" class="guess-input" id="js-guess-input" />
+        <button class="guess-button" id="js-guess-button">Submit Guess</button>
       </div>
-    </div>
-
-    <div>
-      <div id="mainBoard" class="board">
-        <div class="row categories">
-          <div class="tile">Lexical<br />Structure</div>
-          <div class="tile">Objects</div>
-          <div class="tile">Arrays</div>
-          <div class="tile">Functions</div>
-          <div class="tile">Handling<br />Events</div>
-        </div>
-        <!-- $100 -->
-        <div id="oneHundred" class="row clues">
-          <!-- <div class="tile" onclick="toggleActive(this)">
-            <div class="value">$100</div>
-            <div class="question">This is the question?</div>
-          </div>
-          <div class="tile" onclick="toggleActive(this)">
-            <div class="value">$100</div>
-            <div class="question">This is the answer.</div>
-          </div>
-          <div class="tile" onclick="toggleActive(this)">
-            <div class="value">$100</div>
-            <div class="question">This is the answer.</div>
-          </div>
-          <div class="tile" onclick="toggleActive(this)">
-            <div class="value">$100</div>
-            <div class="question">This is the answer.</div>
-          </div>
-          <div class="tile" onclick="toggleActive(this)">
-            <div class="value">$100</div>
-            <div class="question">This is the answer.</div>
-          </div> -->
-        </div>
-        <!-- $200 -->
-        <div class="row clues">
-          <div class="tile" onclick="toggleActive(this)">
-            <div class="value">$200</div>
-            <div class="question">This is the answer.</div>
-          </div>
-          <div class="tile" onclick="toggleActive(this)">
-            <div class="value">$200</div>
-            <div class="question">This is the answer.</div>
-          </div>
-          <div class="tile" onclick="toggleActive(this)">
-            <div class="value">$200</div>
-            <div class="question">This is the answer.</div>
-          </div>
-          <div class="tile" onclick="toggleActive(this)">
-            <div class="value">$200</div>
-            <div class="question">This is the answer.</div>
-          </div>
-          <div class="tile" onclick="toggleActive(this)">
-            <div class="value">$200</div>
-            <div class="question">This is the answer.</div>
-          </div>
-        </div>
-        <!-- $500 -->
-        <div class="row clues">
-          <div class="tile" onclick="toggleActive(this)">
-            <div class="value">$500</div>
-            <div class="question">This is the question?</div>
-          </div>
-          <div class="tile" onclick="toggleActive(this)">
-            <div class="value">$500</div>
-            <div class="question">This is the answer.</div>
-          </div>
-          <div class="tile" onclick="toggleActive(this)">
-            <div class="value">$500</div>
-            <div class="question">This is the answer.</div>
-          </div>
-          <div class="tile" onclick="toggleActive(this)">
-            <div class="value">$500</div>
-            <div class="question">This is the answer.</div>
-          </div>
-          <div class="tile" onclick="toggleActive(this)">
-            <div class="value">$500</div>
-            <div class="question">This is the answer.</div>
-          </div>
-        </div>
-        <!-- $1000 -->
-        <div class="row clues">
-          <div class="tile" onclick="toggleActive(this)">
-            <div class="value">$1000</div>
-            <div class="question">This is the question?</div>
-          </div>
-          <div class="tile" onclick="toggleActive(this)">
-            <div class="value">$1000</div>
-            <div class="question">This is the answer.</div>
-          </div>
-          <div class="tile" onclick="toggleActive(this)">
-            <div class="value">$1000</div>
-            <div class="question">This is the answer.</div>
-          </div>
-          <div class="tile" onclick="toggleActive(this)">
-            <div class="value">$1000</div>
-            <div class="question">This is the answer.</div>
-          </div>
-          <div class="tile" onclick="toggleActive(this)">
-            <div class="value">$1000</div>
-            <div class="question">This is the answer.</div>
-          </div>
-        </div>
-        <!-- $2000 -->
-        <div class="row clues">
-          <div class="tile" onclick="toggleActive(this)">
-            <div class="value">$2000</div>
-            <div class="question">This is the question?</div>
-          </div>
-          <div class="tile" onclick="toggleActive(this)">
-            <div class="value">$2000</div>
-            <div class="question">This is the answer.</div>
-          </div>
-          <div class="tile" onclick="toggleActive(this)">
-            <div class="value">$2000</div>
-            <div class="question">This is the answer.</div>
-          </div>
-          <div class="tile" onclick="toggleActive(this)">
-            <div class="value">$2000</div>
-            <div class="question">This is the answer.</div>
-          </div>
-          <div class="tile" onclick="toggleActive(this)">
-            <div class="value">$2000</div>
-            <div class="question">This is the answer.</div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-      crossorigin="anonymous"
-    ></script>
-    <!-- Reference for Knockout.js -->
-    <script
-      type="text/javascript"
-      src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.5.0/knockout-min.js"
-    ></script>
-    <script type="text/javascript" src="js/knockout-mapping-v2.4.1.js"></script>
-    <script src="./js/scripts.js"></script>
-    <script src="./js/game.js"></script>
+    </section>
   </body>
+  <script src="./js/index.js"></script>
 </html>

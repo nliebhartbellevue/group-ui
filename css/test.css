@@ -1,0 +1,163 @@
+/* This is an example of using Sass, otherwise plain CSS works too*/
+body {
+  background-color: black;
+  color: #15abc3;
+  cursor: crosshair;
+  display: grid;
+  font-family: "Orbitron", sans-serif;
+  font-size: 1em;
+  grid-template-areas: "head head" "main section";
+  grid-template-columns: 80% 20%;
+  grid-template-rows: 10% 85%;
+  height: 100vh;
+}
+
+main {
+  display: flex;
+}
+
+form {
+  align-items: center;
+  display: flex;
+  margin-left: 6em;
+}
+
+label {
+  font-color: #15abc3;
+  font-size: 22px;
+  margin-right: 25px;
+  text-shadow: 0 0 5px rgba(21, 171, 195, 0.7);
+}
+
+input {
+  border: none;
+  border-radius: 3px;
+  font-size: 25px;
+  padding-left: 8px;
+  margin-top: 4px;
+}
+
+p {
+  padding: 5px;
+}
+
+.header-container {
+  align-items: baseline;
+  display: flex;
+  grid-area: head;
+  justify-content: center;
+}
+
+.heading {
+  color: #15abc3;
+  font-size: 5em;
+  font-weight: 400;
+  text-shadow: 0 0 5px rgba(21, 171, 195, 0.7);
+}
+
+.main-container {
+  grid-area: main;
+}
+
+.player-info {
+  display: flex;
+  flex-direction: column;
+  grid-area: section;
+  justify-content: space-around;
+}
+
+.input-player,
+textarea {
+  caret-color: #15abc3;
+}
+
+.input-player[type="text"] {
+  font-family: "Orbitron", sans-serif;
+}
+
+.names-button {
+  background: black;
+  border-radius: 3px;
+  color: #15abc3;
+  font-family: "Orbitron", sans-serif;
+  font-size: 18px;
+  height: 31px;
+  margin-top: 25px;
+  width: 102px;
+}
+
+.players-heading {
+  color: #e859fe;
+  font-size: 2em;
+}
+
+.player-points {
+  color: #59fe95;
+  font-size: 1.5em;
+  margin-right: 10px;
+}
+
+#js-player-one-points,
+#js-player-two-points,
+#js-player-three-points {
+  margin-left: 10px;
+}
+
+.input-guess {
+  border-radius: 3px;
+  font-family: "Orbitron", sans-serif;
+  font-size: 18px;
+  grid-area: foot;
+  height: 30px;
+  margin-bottom: 10px;
+  margin-left: 13px;
+  width: 13em;
+}
+
+#js-guess-input[type="text"] {
+  font-family: "Orbitron", sans-serif;
+  width: 255px;
+}
+
+#js-show-answer {
+  font-size: 1.5em;
+}
+
+.guess-button {
+  background: black;
+  color: #15abc3;
+  font-family: "Orbitron", sans-serif;
+  font-size: 18px;
+  height: 25px;
+  margin-left: 22px;
+  margin-top: 10px;
+  width: 20em;
+  width: 220px;
+}
+
+.jeopardy-board {
+  height: 100%;
+  padding: 0 30px;
+  text-align: center;
+  width: 100%;
+}
+
+.card {
+  font-size: 35px;
+}
+
+th {
+  color: #5970fe;
+  font-size: 18px;
+}
+
+th,
+td {
+  border: 1px solid #15abc3;
+  border-radius: 6px;
+  max-height: 30px;
+  margin: 5px;
+  max-width: 30px;
+  letter-spacing: 2px;
+  text-shadow: 0 0 5px rgba(21, 171, 195, 0.7);
+}

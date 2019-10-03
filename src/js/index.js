@@ -1,16 +1,21 @@
 let clues;
 let game;
 
+fetch("../data/data")
+  .then(response => response.json())
+  .then(gameData => {
+    clues = new Clues(gameData.data);
+    game = new Game(clues);
+  })
+  .catch(error => console.log(error));
+
 import Clues from "./Clues";
 import Player from "./Player";
 import Game from "./game";
 import Round from "./round";
 import Turn from "./Turn";
 import domUpdates from "./DomUpdates";
-import data from "../data/data";
-
-clues = new Clues(data.data);
-game = new Game(clues);
+import $ from "jquery";
 
 $("#js-jeopardy-board").hide();
 $(".player-info").hide();

@@ -7,7 +7,7 @@ class Clues {
   }
 
   shuffleCategories() {
-    let categories = Object.entries(this.data.categories);
+    let categories = Object.entries(this.data.data.categories);
     let random = categories.sort(() => Math.random() - 0.5);
     this, (randomCat = random);
   }
@@ -34,3 +34,4 @@ class Clues {
     this.cards = allQuestions.sort((a, b) => a.pointValue - b.pointValue);
   }
 }
+export default Clues;
